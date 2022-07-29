@@ -1,0 +1,181 @@
+\documentclass[11pt, a4paper]{article}
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{soul}
+%\usepackage{comment}
+%\usepackage{subfigure}
+%\usepackage{algorithm2e}
+%\usepackage{xcolor}
+%\usepackage{booktabs} 
+%\usepackage{url}
+%\usepackage{multirow}
+
+\usepackage{graphicx} %package to manage images
+\graphicspath{ {./images/} }
+\usepackage[rightcaption]{sidecap}
+\usepackage{wrapfig}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[brazil]{babel}
+%\usepackage[latin1]{inputenc} %-- Acentuação português
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts, amssymb, amsthm, mathrsfs}
+\usepackage{epsfig}
+\usepackage{color} % As figuras do xfig precisam...
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{automata}
+
+% As margens
+\setlength{\textheight}{24.0cm}
+\setlength{\textwidth}{17.5cm}
+\setlength{\oddsidemargin}{2.0cm} % Margens reais desejadas
+\setlength{\evensidemargin}{2.0cm} % 2+17.5+1.5=21cm (largura A4)
+\setlength{\topmargin}{1.5cm} % 1.5+1.6+1.0+24.0+1.6=29.7cm
+\setlength{\headheight}{1.6cm} % (altura A4)
+\setlength{\headsep}{1.0cm}
+\setlength{\columnsep}{1.5cm} % Coluna = 8cm ((17.5-1.5)/2)
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\addtolength{\topmargin}{-1in}
+\setlength{\footskip}{0.0cm}
+
+%\pagestyle{fancy}
+\pagestyle{fancyplain}
+
+\newcounter{questao}
+\newcommand{\quest}{\stepcounter{questao}{\bf \arabic{questao}.\ }}
+
+
+\begin{document}
+
+\renewcommand{\headrulewidth}{0pt} % Retira a linha do cabeçalho
+
+\chead{\includegraphics[scale=0.75]{./Figuras/Logos-UEA-cabecalho.pdf}
+\begin{center}
+\sc
+\textbf{Escola Superior de Tecnologia - EST} \\
+\textbf{Núcleo de Computação - NUCOMP} \\ 
+\end{center}
+}
+%\fancyfoot[C]{\thepage}
+\cfoot{} % retira número da página no rodapé
+%\cfoot{\thepage}
+%\rfoot{ \fancyplain{}{\thepage} } número da página à direita
+
+{\color{white} linha em branco}  \\ [0.0ex] %% Espaçamento após o cabeçalho
+
+\vspace{0.0cm}
+\begin{flushleft}
+\large
+\textsc{\textbf{Banco de Dados I} \\
+\textbf{Caderno de Questões - GABARITO}} \ \large \hfill \textbf{Data}: 11/11/2019\\
+\textbf{Prof. Dr. Tiago Eugenio de Melo} \\
+\textbf{Aluno Monitor Jackson Kelvin de Souza} \\[4mm]
+\end{flushleft}
+%-------------------------------------------------------------------------------
+\vspace{0.5cm}
+
+\noindent \textbf{Questão} \quest B
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest D
+\newline
+\noindent \textbf{Questão} \quest B
+\newline
+\noindent \textbf{Questão} \quest E
+\newline
+---------------------\newline
+\noindent \textbf{Questão} \quest E
+\newline
+---------------------\newline
+\noindent \textbf{Questão} \quest E
+\newline
+\noindent \textbf{Questão} \quest B
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest B
+\newline
+\noindent \textbf{Questão} \quest B
+\newline
+\noindent \textbf{Questão} \quest E
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+---------------------\newline
+\noindent \textbf{Questão} \quest ?
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newline
+\noindent \textbf{Questão} \quest A
+\newpage
+
+\normalsize
+\vspace{0.5cm}
+\noindent \sf \small \textbf{REFERENCIAS:}
+\rm
+\normalsize
+\newline\newline
+http://portal.inep.gov.br/web/guest/educacao-superior/enade/provas-e-gabaritos
+\newline
+https://www.sbc.org.br/documentos-da-sbc/category/153-provas-e-gabaritos-do-poscomp
+\newline
+\end{document}

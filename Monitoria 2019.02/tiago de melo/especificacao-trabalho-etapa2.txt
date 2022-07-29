@@ -1,0 +1,9 @@
+Etapa II
+
+Trabalho de projeto
+
+O trabalho será uma continuação da Etapa I. Portanto, devem ser mantidas as mesmas duplas. Se o aluno tiver realizado a primeira etapa individualmente, então deverá realizar a Etapa II também de modo individual. O primeiro passo do trabalho é fazer as correções indicadas pelo professor na etapa anterior. Em caso de dúvidas sobre essa correção, deve-se procurar o professor em tempo hábil. Em seguida, as equipes devem criar a estrutura do banco de dados que foi projetada e inserir em cada tabela, pelo menos, três tuplas. Deve-se utilizar o MySQL como Sistema de Gerenciamento de Banco de Dados (SGBD). Após a criação do banco e da inserção dos dados, a equipe deve fazer o dump do banco de dados e enviá-lo para o e-mail do professor (tmelo@uea.edu.br) até o dia 04.06.2019. O arquivo enviado deve estar na extensão "sql". A nota do trabalho será igual para a dupla, independentemente de quem tenha se esforçado mais. Não haverá apresentação do projeto. A Etapa II valerá 50% da nota do trabalho e a Etapa I valerá os outros 50% da nota do trabalho. Não haverá mais apresentação/defesa dos projetos. As duplas NÃO devem consultar os demais alunos, pois se for possível detectar a ocorrência de cópia de trabalhos a nota para todos os alunos será 0 (zero). 
+
+Em suma, deve-se realizar as seguintes atividades:
+- Corrigir o trabalho entregue na Etapa I e entregar a versão corrigida de modo impresso no horário da aula (04.06.2019). É obrigatória a entrega impressa da primeira versão do trabalho (Etapa I). Deve-se também, assim como na Etapa I, enviar o trabalho por e-mail para o professor.
+- Enviar o dump do banco de dados criado por e-mail na data estabelecida na especificação.

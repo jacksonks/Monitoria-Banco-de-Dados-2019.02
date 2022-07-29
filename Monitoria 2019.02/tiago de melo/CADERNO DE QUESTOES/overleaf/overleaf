@@ -1,0 +1,1098 @@
+\documentclass[11pt, a4paper]{article}
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{soul}
+%\usepackage{comment}
+%\usepackage{subfigure}
+%\usepackage{algorithm2e}
+%\usepackage{xcolor}
+%\usepackage{booktabs} 
+%\usepackage{url}
+%\usepackage{multirow}
+
+\usepackage{graphicx} %package to manage images
+\graphicspath{ {./images/} }
+\usepackage[rightcaption]{sidecap}
+\usepackage{wrapfig}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[brazil]{babel}
+%\usepackage[latin1]{inputenc} %-- Acentuação português
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts, amssymb, amsthm, mathrsfs}
+\usepackage{epsfig}
+\usepackage{color} % As figuras do xfig precisam...
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{automata}
+
+% As margens
+\setlength{\textheight}{24.0cm}
+\setlength{\textwidth}{17.5cm}
+\setlength{\oddsidemargin}{2.0cm} % Margens reais desejadas
+\setlength{\evensidemargin}{2.0cm} % 2+17.5+1.5=21cm (largura A4)
+\setlength{\topmargin}{1.5cm} % 1.5+1.6+1.0+24.0+1.6=29.7cm
+\setlength{\headheight}{1.6cm} % (altura A4)
+\setlength{\headsep}{1.0cm}
+\setlength{\columnsep}{1.5cm} % Coluna = 8cm ((17.5-1.5)/2)
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\addtolength{\topmargin}{-1in}
+\setlength{\footskip}{0.0cm}
+
+%\pagestyle{fancy}
+\pagestyle{fancyplain}
+
+\newcounter{questao}
+\newcommand{\quest}{\stepcounter{questao}{\bf \arabic{questao}.\ }}
+
+
+\begin{document}
+
+\renewcommand{\headrulewidth}{0pt} % Retira a linha do cabeçalho
+
+\chead{\includegraphics[scale=0.75]{./Figuras/Logos-UEA-cabecalho.pdf}
+\begin{center}
+\sc
+\textbf{Escola Superior de Tecnologia - EST} \\
+\textbf{Núcleo de Computação - NUCOMP} \\ 
+\end{center}
+}
+%\fancyfoot[C]{\thepage}
+\cfoot{} % retira número da página no rodapé
+%\cfoot{\thepage}
+%\rfoot{ \fancyplain{}{\thepage} } número da página à direita
+
+{\color{white} linha em branco}  \\ [0.0ex] %% Espaçamento após o cabeçalho
+
+\vspace{0.0cm}
+\begin{flushleft}
+\large
+\textsc{\textbf{Banco de Dados I} \\
+\textbf{Caderno de Questões}} \ \large \hfill \textbf{Data}: 11/11/2019\\
+\textbf{Prof. Dr. Tiago Eugenio de Melo} \\
+\textbf{Aluno Monitor Jackson Kelvin de Souza} \\[4mm]
+\end{flushleft}
+\large
+\textbf{Aluno}: \hrulefill\ \ \ \\[2mm]
+\textbf{Matrícula}:
+\framebox[0.4cm]{\rule{0cm}{0.3cm}}\hspace{-1.5mm}
+\framebox[0.4cm]{\rule{0cm}{0.3cm}}\hspace{-1.5mm}
+\framebox[0.4cm]{\rule{0cm}{0.3cm}}\hspace{-1.5mm}
+\framebox[0.4cm]{\rule{0cm}{0.3cm}}\hspace{-1.5mm}
+\framebox[0.4cm]{\rule{0cm}{0.3cm}}\hspace{-1.5mm}
+\framebox[0.4cm]{\rule{0cm}{0.3cm}}\hspace{-1.5mm}
+\framebox[0.4cm]{\rule{0cm}{0.3cm}}\hspace{-1.5mm}
+\framebox[0.4cm]{\rule{0cm}{0.3cm}}\hspace{-1.5mm}
+\framebox[0.4cm]{\rule{0cm}{0.3cm}}\hspace{-1.5mm}
+\framebox[0.4cm]{\rule{0cm}{0.3cm}}
+
+\section{Fundamentos de Banco de Dados}
+
+\noindent \textbf{Questão} \quest (ENADE 2005) Considere um sistema bancário simplificado e uma transação T1, que transfira 100,00 reais da conta X para a conta Y e é definida pelas operações listadas acima. Considere ainda que uma transação T2 esteja sendo executada simultaneamente com T1. Caso a transação T2 realize a operação Escrita(Y) depois da execução da operação 4 e antes da execução da operação 6 por T1, qual propriedade de transações será violada no banco de dados do referido sistema bancário ?
+\newline\newline
+\includegraphics{images/0.png}
+\newline
+a)	Atomicidade.\newline
+b)	Isolamento.\newline
+c)	Distributividade.\newline
+d)	Consistência.\newline
+e)	Durabilidade.\newline
+\newline
+Resposta: B
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2002) Dentre as características do modelo relacional e do modelo de objetos em bancos de dados, qual afirmação é INCORRETA?
+\newline\newline
+a) O relacionamento de herança é diretamente representado no modelo relacional.\newline
+b) O relacionamento binário N x M é representado de modo semelhante nos dois modelos.\newline
+c) O modelo de objetos possui mais recursos estruturais para a representação de dados que o relacional.\newline
+d) O modelo de objetos provê uma representação bem próxima de linguagens de programação.\newline
+e) O modelo de objetos é mais adequado para a representação de tipos abstratos de dados.\newline
+\newline
+Resposta: A
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2004) Transações em SGBD relacionais normalmente preenchem os requisitos ACID (atomicidade, consistência, isolamento e durabilidade). Considere as seguintes afirmações:
+ \renewcommand{\labelenumii}{\Roman{enumii}}
+ \begin{enumerate}
+    \begin{enumerate}
+    \item Isolamento significa que o efeito das operações de alteração efetuadas por uma transação T não são vistas por outras transações, até que a transação T encerre.
+    \item Isolamento significa que os dados protegidos para alteração por uma transação não podem ser protegidos para alteração por outra transação.
+    \item Durabilidade significa que o efeito de uma operação (INSERT, DELETE ou UPDATE) sobre a base de dados não pode ser desfeito.
+    \item Durabilidade significa que o efeito das operações de alteração executadas por uma transação não pode ser desfeito, após do final bem sucedido (COMMIT) da transação.
+    \end{enumerate}
+ \end{enumerate}
+ \newline
+ Quanto a estas afirmativas vale que:
+ \newline\newline
+a) Somente as afirmativas I) e III) são corretas.\newline
+b) Somente as afirmativas I) e IV) são corretas.\newline
+c) Somente as afirmativas II) e III) são corretas.\newline
+d) Somente as afirmativas II) e IV) são corretas.\newline
+e) Somente a afirmativa I) é correta.\newline
+\newline
+Resposta: D
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2006) Assinalar a opção correta acerca das sentenças abaixo:
+ \renewcommand{\labelenumii}{\Roman{enumii}}
+ \begin{enumerate}
+    \begin{enumerate}
+    \item Os nıveis de isolamento de uma transação SQL são: Read Uncommitted, Read Committed, Repeatable Read e Serializable.
+    \item Atomicidade e Durabilidade são garantidas pelo Gerenciador de Recuperação do SGBD.
+    \item São propriedades de uma transação: Atomicidade, Consistência, Integridade e Durabilidade.
+    \end{enumerate}
+ \end{enumerate}
+ \newline
+ Quanto a estas afirmativas vale que: \newline
+ \newline
+a) Apenas I é verdadeira.\newline
+b) Apenas I e II são verdadeiras.\newline
+c) Apenas II e III são verdadeiras.\newline
+d) Apenas I e III são verdadeiras.\newline
+e) Todas são verdadeiras.\newline
+\newline
+Resposta: B
+\newline
+\newpage
+\noindent \textbf{Questão} \quest (POSCOMP 2008) Considere que as transações T1 e T2 abaixo possam ocorrer simultaneamente.:
+\newline
+\includegraphics{images/1.png}
+\newline
+Analise as seguintes situações.
+ \renewcommand{\labelenumii}{\Roman{enumii}}
+ \begin{enumerate}
+    \begin{enumerate}
+    \item A operação Leitura(A) de T2 é executada após a operação Escrita(A) e antes da operação Leitura(B) de T1. Entretanto, a operação Escrita(B) de T1 causa uma violação de integridade, e a transação T1 é abortada, sendo suas operações desfeitas.
+    \item Após as operações da transação T1 terem sido executadas, é enviada uma mensagem ao usuário informando que a transação foi completada com êxito. Entretanto, antes que os buffers relativos a T1 sejam descarregados para o meio físico, ocorre uma falha, e os dados não são efetivamente gravados.
+    \end{enumerate}
+ \end{enumerate}
+\newline
+As propriedades das transações que foram violadas nessas duas situações são, respectivamente:\newline
+\newline
+a) Atomicidade e Consistência.\newline
+b) Durabilidade e Atomicidade.\newline
+c) tomicidade e Durabilidade.\newline
+d) Durabilidade e Isolamento\newline
+e) Isolamento e Durabilidade.\newline
+\newline
+Resposta: E
+
+\newpage
+\section{Modelo Entidade Relacionamento}
+
+\noindent \textbf{Questão} \quest (ENADE 2005) Todo jogador deve pertencer a um único clube.
+\newline
+Assinale a opção que representa corretamente, no modelo entidade-relacionamento, a especificação apresentada acima.
+\newline\newline
+a)	\includegraphics{images/a.png}\newline
+b)	\includegraphics{images/b.png}\newline
+c)	\includegraphics{images/c.png}\newline
+d)	\includegraphics{images/d.png}\newline
+e)	\includegraphics{images/e.png}\newline
+\newline
+Resposta: E
+\newline
+
+
+\section{Modelo Relacional}
+
+\noindent \textbf{Questão} \quest (ENADE 2008) Considere o esquema de banco de dados relacional apresentado a seguir, formado por 4 relações, que representa o conjunto de estudantes de uma universidade que podem, ou não, morar em repúblicas (moradias compartilhadas por estudantes). A relação Estudante foi modelada como um subconjunto da relação Pessoa. Considere que os atributos grifados correspondam à chave primária da respectiva relação e os atributos que são seguidos da palavra referencia sejam chaves estrangeiras. 
+\newline\newline
+Pessoa(IdPessoa:integer, Nome:varchar(40), Endereco:varchar(40))\newline
+FonePessoa(IdPessoa:integer referencia Pessoa, DDD:varchar(3), Prefixo:char(4), Nro:char(4))\newline
+Republica(IdRep:integer, Nome:varchar(30), Endereco:varchar(40))\newline
+Estudante(RA:integer, Email:varchar(30), IdPessoa:integer referencia Pessoa, IdRep:integer referencia Republica)\newline
+\newline
+\newpage
+Suponha que existam as seguintes tuplas no banco de dados:\newline
+\newline
+Pessoa (1, ‘José Silva’, ‘Rua 1, 20’);\newline
+Republica (20, ‘Várzea’, ‘Rua Chaves, 2001’)\newline
+\newline
+Qual opção apresenta apenas tuplas válidas para esse esquema de banco de dados relacional?
+\newline\newline
+a)	Estudante(10, ‘jsilva@ig.com.br’, null, 20); FonePessoa(10, ‘019’, ‘3761’, ‘1370’)\newline
+b)	Estudante(10, ‘jsilva@ig.com.br’, 1, null); FonePessoa(10, ‘019’, ‘3761’, ‘1370’)\newline
+c)	Estudante(10, ‘jsilva@ig.com.br’, 1, 20); FonePessoa(1, null, ‘3761’, ‘1370’)\newline
+d)	Estudante(10, ‘jsilva@ig.com.br’, 1, 50); FonePessoa(1, ‘019’, ‘3761’, ‘1370’)\newline
+e)	Estudante(10, ‘jsilva@ig.com.br’, 1, null); FonePessoa(1, ‘019’, ‘3761’, ‘1370’)\newline
+\newline
+Resposta: E
+\newline\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2003) Considere a seguinte tabela para uma base de dados relacional:
+\newline\newline
+Empregado (CodEmp, NomeEmp, CodDepto)
+\newline\newline
+Considere que esta tabela tem um índice na forma de uma árvore B sobre as colunas (CodEmp,CodDepto), nesta ordem.
+\newline\newline
+Quanto a este índice, considere as seguintes afirmativas:
+\newline\newline
+1) Este índice pode ser usado pelo SGBD relacional para acelerar uma consulta na qual são fornecidos os valores de CodEmp e CodDepto.\newline
+2) Este índice pode ser usado pelo SGBD relacional para acelerar uma consulta na qual é fornecido um valor de CodEmp.\newline
+3) Este índice não é adequado para ser usado pelo SGBD relacional para acelerar uma consulta na qual é fornecido um valor de CodDepto.\newline
+4) O algoritmo que faz inserções e remoções de entradas do índice tem por objetivo garantir que o índice fique organizado de tal forma que o acesso a cada nodo da árvore implique em número de acessos semelhantes.\newline
+5) O índice por árvore-B não é adequado para tabelas que sofrem grande número de inclusões e exclusões, pois exige reorganizações freqüentes.\newline
+\newline
+Quanto a estas afirmativas pode se dizer que:
+\newline\newline
+a)	Nenhuma das afirmativas está correta\newline
+b)	Apenas as afirmativas 1), 2), 3) e 4) estão corretas\newline
+c)	Todas afirmativas estão corretas\newline
+d)	Apenas as afirmativas 1), 2) e 4) estão corretas\newline
+e)	Apenas as afirmativas 1), 2) e 5) estão corretas\newline
+\newline
+Resposta: B
+\newline
+
+\newpage
+\noindent \textbf{Questão} \quest (POSCOMP 2004) Considere um modelo entidade-relacionamento de uma indústria. 
+\newline\newline
+Este modelo representa peças com suas propriedades, bem como a composição de peças (peças podem ser usadas na composição de outras peças).
+\newline\newline
+Este modelo entidade relacionamento contém:
+\newline\newline
+•	Uma entidade Peça, com atributos código e nome e peso.
+\newline
+•	Um auto-relacionamento de Peça, chamado Composição. Neste auto-relacionamento uma peça tem papel de componente e outra peça papel de composto. O auto-relacionamento tem cardinalidade n:n e tem um atributo quantidade, que informa quantas unidades da peça componente são usadas na peça composto.
+\newline\newline
+Uma base de dados relacional que implementa corretamente este modelo entidade relacionamento e está na terceira forma normal é (chaves primárias estão sublinhadas):
+\newline\newline
+a)	Peca (CodPeca, NomePeca, PesoPeca)\newline
+Composicao(CodPecaComposto,CodPecaComponente,Quantidade)\newline
+Composição.CodPecaComposto referencia Peca\newline
+Composição.CodPecaComponente referencia Peca\newline
+\newline
+b)	Peca (CodPeca, NomePeca, PesoPeca, CodPecaComposto,
+Quantidade)\newline
+Peca.CodPecaComposto referencia Peca
+\newline\newline
+c)	Peca (CodPeca, NomePeca, PesoPeca)\newline
+Composicao(CodPecaComposto,CodPecaComponente,Quantidade)\newline
+Composição.CodPecaComposto referencia Peca\newline
+Composição.CodPecaComponente referencia Peca\newline
+\newline
+d)	Peca (CodPeca, NomePeca, PesoPeca, CodPecaComposto,CodPecaComponente,Quantidade)\newline
+Peca.CodPecaComposto referencia Peca\newline
+Peca.CodPecaComponente referencia Peca\newline
+\newline
+e)	Composto (CodPeca, NomePeca, PesoPeca)\newline
+Componente (CodPeca, NomePeca, PesoPeca, CodPecaComposto
+Quantidade)\newline
+Componente.CodPecaComposto referencia Composto\newline
+\newline
+Resposta: A
+\newline
+
+\newpage
+\noindent \textbf{Questão} \quest (POSCOMP 2005) Em um banco de dados relacional, considere os esquemas de relação:
+\newline\newline
+Pessoa (CPF, Profissão)\newline
+Trabalha (CPF, CGC, Periodo)\newline
+Firma (CGC, nome, endereco)\newline
+\newline
+e considere as operações de álgebra relacional União, Interseção, Diferença, Junção Natural, Projeção e Seleção.
+\newline
+A consulta “Qual a profissão das pessoas que trabalham em alguma firma de
+nome X" exige ao menos a seguinte operação para ser processada:
+\newline\newline
+a)	Interseção de Pessoa, Trabalha e Firma.\newline
+b)	Junção Natural de Pessoa, Trabalha e Firma.\newline
+c)	União de Pessoa, Trabalha e Firma.\newline
+d)	Seleção de Pessoa, Trabalha e Firma.\newline
+e)	Nada pode ser afirmando porque os dados não foram fornecidos.\newline
+\newline
+Resposta: B
+\newline
+
+\newpage
+\noindent \textbf{Questão} \quest (POSCOMP 2008) Considere o projeto lógico do banco de dados representado pelo modelo E-R abaixo.
+\newline\newline
+\includegraphics{images/2.png}
+\newline
+Diga de que tabelas e campos ele resulta:
+\newline\newline
+a)	ARTISTAS (cod-art, nome, gênero)\newline
+PARTICIPANTES (cod-art, cod-disco)\newline
+DISCOS (cod-disco, título, data)\newline
+PRODUÇÃO (cod-grav, cod-disco, estúdio)\newline
+GRAVADORA (cod-grav, nome-grav)\newline
+\newline
+b)	ARTISTAS (cod-art, nome, gênero)\newline
+PARTICIPANTES (cod-art, cod-disco)\newline
+DISCOS (cod-disco, título, data, cod-grav, estúdio)\newline
+GRAVADORA (cod-grav, nome-grav)\newline
+\newline
+c)	ARTISTAS (cod-art, nome, gênero)\newline
+PARTICIPANTES (cod-art, cod-disco)\newline
+DISCOS (cod-disco, título, data, cod-grav, nome-grav, estúdio)\newline
+\newline
+d)	ARTISTAS (cod-art, nome, gênero)\newline
+DISCOS (cod-disco, título, data, cod-art)\newline
+PRODUÇÃO (cod-grav, cod-disco, estúdio)\newline
+GRAVADORA (cod-grav, nome-grav)\newline
+\newline
+e)	ARTISTAS (cod-art, nome, gênero)\newline
+DISCOS (cod-disco, título, data, cod-grav, estúdio, cod-art)\newline
+GRAVADORA (cod-grav, nome-grav)\newline
+\newline
+Resposta: B
+\newline
+
+\newpage
+\noindent \textbf{Questão} \quest (POSCOMP 2009) Dado o diagrama de entidades e relacionamentos abaixo, qual o conjunto de relações que representam as tabelas estritamente necessárias para implementá-lo, onde as chaves primárias aparecem sublinhadas:
+\newline\newline
+\includegraphics{images/3.png}
+\newline\newline
+a)	Aluno (registroAcad, nomeAluno)\newline
+Curso (nomeCurso, registroAcad)\newline
+b)	Aluno (codAluno, registroAcad, nomeAluno, codCurso)\newline
+Curso (codCurso, nomeDept)\newline
+c)	Aluno (codAluno, registroAcad, nomeAluno)\newline
+Curso (codCurso, nomeCurso)\newline
+Estuda(codAluno, codCurso)\newline
+d)	Aluno (registroAcad, nomeAluno)\newline
+Curso (nomeCurso)\newline
+Estuda (registroAcad, nomeCurso)\newline
+e)	Aluno (registroAcad, nomeAluno, nomeCurso)\newline
+Curso (nomeCurso)\newline
+\newline
+Resposta: E
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2016) Considere um banco de dados para apoiar a correção das provas do POSCOMP. Sabe-se que há as relações CANDIDATO, QUESTAO e RESPOSTA. O atributo X da relação QUESTAO é uma chave estrangeira. Com base apenas nessas informações, analise as assertivas abaixo sobre a definição de restrições para essa chave estrangeira: 
+ \renewcommand{\labelenumii}{\Roman{enumii}}
+ \begin{enumerate}
+    \begin{enumerate}
+    \item Pode ter valores repetidos nas tuplas de QUESTAO.
+    \item Pode ter valor nulo em algumas das tuplas de QUESTAO.
+    \item Pode referenciar, ao mesmo tempo, as relações CANDIDATO e RESPOSTA.
+	\item Pode referenciar outra chave estrangeira.
+	\item Pode ter valor não nulo distinto de todos os valores presentes na chave primária da relação que referencia.
+    \end{enumerate}
+ \end{enumerate}
+\newline
+Quais estão corretas?\newline
+\newline
+a) Apenas I e II.\newline
+b) Apenas I e III.\newline
+c) Apenas II e V.\newline
+d) Apenas III e IV.\newline
+e) Apenas IV e V.\newline
+\newline
+Resposta: A
+
+\newpage
+\section{Normalização}
+
+\noindent \textbf{Questão} \quest (ENADE 2008) Considere o esquema de relação:
+\newline\newline
+Cliente (CPF, nome, RGemissor, RGnro, endereco, loginemail, dominioemail)
+\newline\newline
+e as seguintes dependências funcionais (DF) válidas sobre o esquema:
+\newline\newline
+DF1: CPF ÷ nome, RGemissor, RGnro, endereco, loginemail,
+dominioemail\newline
+DF2: RGemissor, RGnro ÷ CPF, nome, endereco, loginemail,
+Dominioemail\newline
+DF3: loginemail, dominioemail ÷ CPF
+\newline\newline
+Qual é o conjunto completo de chaves candidatas de Cliente e em que forma normal mais alta essa relação está?
+\newline\newline
+a)	{(RGemissor, RGnro), (CPF)}, na Forma Normal de Boyce-Codd (FNBC).\newline
+b)	{(RGemissor, RGnro), (CPF)}, na Segunda Forma Normal (2FN).\newline
+c)	{(loginemail, dominioemail)}, na Forma Normal de Boyce-Codd (FNBC).\newline
+d)	{(RGemissor, RGnro), (loginemail, dominioemail),(CPF)}, na Forma Normal de Boyce-Codd (FNBC).\newline
+e)	{(RGemissor, RGnro), (loginemail, dominioemail),(CPF)}, na Segunda Forma Normal (2FN).\newline
+\newline
+Resposta: D
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2003) Considere a seguinte tabela em uma base de dados relacional (chave primária sublinhada):
+\newline\newline
+Tabela1(CodAluno,CodDisciplina,AnoSemestre, NomeAluno, NomeDisciplina, CodNota, DescricaoNota)
+\newline\newline
+Considere as seguintes dependências funcionais:
+\newline\newline
+CodAluno→NomeAluno\newline
+CodDisciplina→NomeDisciplina\newline
+(CodAluno,CodDisciplina,AnoSemestre)→CodNota\newline
+(CodAluno,CodDisciplina,AnoSemestre)→DescricaoNota\newline
+CodNota→DescricaoNota
+\newline\newline
+Considerando as formas normais, qual das afirmativas abaixo se aplica:
+\newline\newline
+a)	A tabela encontra-se na primeira forma normal, mas não na segunda forma normal.\newline
+b)	A tabela encontra-se na segunda forma normal, mas não na terceira forma normal.\newline
+c)	A tabela encontra-se na terceira forma normal, mas não na quarta forma normal.\newline
+d)	A tabela não está na primeira forma normal.\newline
+e)	A tabela está na quarta forma normal.\newline
+\newline
+Resposta: A
+
+\newpage
+\noindent \textbf{Questão} \quest (POSCOMP 2003) (POSCOMP 2005) Qual das seguintes informações é verdadeira?
+\newline\newline
+\includegraphics{images/4.png}
+\newline
+Resposta: E
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2009) Considere a relação abaixo, obtida via processo de engenharia reversa em documentos de uma empresa.
+\newline\newline
+Emp (CodEmp, CodDept, CodMaq, Nome, Sala, NomeDept, NomeMáquina)
+\newline\newline
+Através de um processo de normalização (não necessariamente completo), chegou-se ao seguinte conjunto de relações:
+\newline\newline
+R1 (CodEmp, Nome, CodDept, CodMaq)\newline
+R2 (CodDept, NomeDept, Sala)\newline
+R3 (CodMaq, NomeMáquina).\newline
+\newline
+Considere que as seguintes dependências funcionais se aplicam a estas relações:
+\newline\newline
+CodEmp → Nome\newline
+CodDept → {NomeDept, Sala}\newline
+CodMáquina → NomeMáquina\newline
+\newline
+Assinale a alternativa CORRETA:
+\newline\newline
+a)	A relação Emp encontra-se na segunda forma normal (2FN).\newline
+b)	Todas as três relações R1, R2 e R3 encontram-se na segunda forma normal (2FN).\newline
+c)	Somente as relações R1 e R3 encontram-se na segunda forma normal (2FN).\newline
+d)	Somente a relação R3 encontra-se na terceira forma normal (3FN).\newline
+e)	Nenhuma das afirmativas anteriores é verdadeira.\newline
+\newline
+Resposta: B
+\newpage
+\noindent \textbf{Questão} \quest O processo de normalização baseia-se no conceito de forma normal, que é uma regra que deve ser obedecida por uma relação para que seja considerada bem projetada. Com base nos conhecimentos sobre normalização, considere as afirmativas a seguir.
+\newline\newline
+ \renewcommand{\labelenumii}{\Roman{enumii}}
+ \begin{enumerate}
+    \begin{enumerate}
+    \item A Primeira Forma Normal (1FN) define que a relação não deve conter atributos não atômicos ou as relações aninhadas. A ação que deve ser tomada para deixar uma relação na 1FN é formar uma nova relação para cada atributo não atômico ou para cada relação aninhada.
+    \item A Segunda Forma Normal (2FN) define que, além de estar na 1FN, para as relações que possuam chaves primárias com vários atributos, nenhum atributo externo à chave deve ser funcionalmente dependente de parte da chave primária. A ação que deve ser tomada é decompor e montar uma nova relação para cada chave parcial com seu(s) atributo(s) dependente(s).
+    \item A Terceira Forma Normal (3FN) define que, além de estar na 2FN, as relações não devem ter atributos que não pertençam a uma chave, funcionalmente determinados por outro atributo que também não pertença a uma chave (ou por um conjunto de atributos não chave). A ação que deve ser tomada é decompor e montar uma relação que contenha o(s) atributo(s) não chave que determina(m) funcionalmente o(s) outro(s) atributo(s).
+    \item Uma dependência parcial ocorre quando um atributo, além de depender da chave primária, depende de outro atributo ou conjunto de atributos da relação. Uma dependência transitiva ocorre quando um atributo depende apenas de parte de uma chave primária composta.
+    \end{enumerate}
+ \end{enumerate}
+ \newline
+ Assinale a alternativa correta.
+ \newline\newline
+a) Somente as afirmativas I e IV são corretas.\newline
+b) Somente as afirmativas II e III são corretas.\newline
+c) Somente as afirmativas III e IV são corretas.\newline
+d) Somente as afirmativas I, II e III são corretas.\newline
+e) Somente as afirmativas I, II e IV são corretas.\newline
+\newline
+Resposta: D
+\newpage
+\noindent \textbf{Questão} \quest (POSCOMP 2013) Considere o diagrama ER (Entidade-Relacionamento), a seguir, sobre Médicos, suas especialidades e vários telefones.
+\newline\newline
+\includegraphics{images/5.png}
+\newline\newline
+Nesse diagrama, as entidades são retângulos, os relacionamentos são losangos, os atributos são ovais, os atributos multivalorados são ovais com linhas duplas, as entidades fracas são retângulos com linhas duplas e os relacionamentos identificadores são losangos com linhas duplas. Esse diagrama precisa ser mapeado a fim de armazenar dados em um Sistema de Gerenciamento de Bancos de Dados Relacional.
+\newline\newline
+Com base nas regras de mapeamento e da Terceira Forma Normal (3FN), atribua V (verdadeiro) ou F (falso)
+\newline\newline
+às afirmativas a seguir.
+\newline\newline
+( ) A chave primária da tabela Telefone será composta por CRM e número.\newline
+( ) Uma tabela específica será criada para Médico e outra para Telefone, com uma chave estrangeira.\newline
+( ) Uma tabela específica será criada para Médico e outra para Telefone, sem qualquer chave estrangeira.\newline
+( ) Uma tabela específica será criada para o atributo Especialidade com uma chave estrangeira para a tabela Médico.\newline
+( ) Uma tabela específica será criada para o relacionamento entre Médico e Telefone, com as respectivas chaves estrangeiras.\newline
+\newline
+Assinale a alternativa que contém, de cima para baixo, a sequência correta.
+\newline\newline
+a)	V, V, F, V, F.\newline
+b)	V, F, V, F, V.\newline
+c)	F, V, F, V, F.\newline
+d)	F, V, F, F, V.\newline
+e)	F, F, V, V, V.\newline
+\newline
+Resposta: A
+\newpage
+\section{Àlgebra Relacional}
+
+\noindent \textbf{Questão} \quest (POSCOMP 2002) Supondo a Relação PROJ (PNO, Orçam), com chave primária PNO, a Relação EMP (ENO, ENome, Cargo) com chave primária ENO, e a Relação DSG (ENO, PNO, Dur, Resp), com chave primária {ENO, PNO}, chave estrangeira PNO em relação a PROJ e chave estrangeira ENO em relação a EMP. Qual das expressões da álgebra relacional abaixo NÃO corresponde à seguinte consulta SQL:
+\newline\newline
+SELECT ENome\newline
+FROM EMP, PROJ, DSG\newline
+WHERE EMP.ENO = DSG.ENO\newline
+AND PROJ.PNO = DSG.PNO\newline
+AND Dur > 36\newline
+\newline
+\includegraphics{images/alg.png}
+\newline
+Resposta: E
+\newpage
+
+\section{SQL}
+
+\noindent \textbf{Questão} \quest (ENADE 2005) Considere o seguinte script SQL de criação de um banco de dados. A partir desse script, assinale a opção que apresenta comando SQL que permite obter uma lista que contenha o nome de cada fornecedor que tenha fornecido alguma peça, o código da peça fornecida, a descrição dessa peça e a quantidade fornecida da referida peça.
+\newline\newline
+\includegraphics{images/sql.png}
+\newline\newline
+\includegraphics{images/abc.png}
+\newline
+Resposta: D
+\newline
+\newpage
+
+\noindent \textbf{Questão} \quest (ENADE 2008) Considere as seguintes tabelas:
+\newline\newline
+CREATE TABLE Departamento\newline
+(\newline
+IdDep int NOT NULL,\newline
+NomeDep varchar(15),\newline
+CONSTRAINT Departamentopkey PRIMARY KEY (IdDep)\newline
+);\newline
+CREATE TABLE Empregado\newline
+(\newline
+IdEmpregado int NOT NULL,\newline
+IdDep int,\newline
+salario float,\newline
+CONSTRAINT Empregadopkey PRIMARY KEY (IdEmpregado),\newline
+CONSTRAINT EmpregadoIdDepfkey FOREIGN KEY (IdDep)\newline
+REFERENCES Departamento(IdDep)\newline
+ON UPDATE RESTRICT ON DELETE RESTRICT\newline
+)\newline
+\newline
+Considere as seguintes consultas SQL:\newline
+\newline
+I. SELECT NomeDep, count(*)\newline
+FROM Departamento D, Empregado E\newline
+WHERE D.IdDep=E.IdDep and E.salario > 10000\newline
+GROUP BY NomeDep\newline
+HAVING count(*) > 5;\newline
+\newline
+II. SELECT NomeDep, count(*)\newline
+FROM Departamento D, Empregado E\newline
+WHERE D.IdDep=E.IdDep and E.salario >10000 and\newline
+E.IdDep IN (SELECT IdDep\newline
+FROM Empregado\newline
+GROUP BY IdDep\newline
+HAVING count(*) > 5)\newline
+GROUP BY NomeDep;\newline
+\newline
+\newpage
+Quando as consultas acima são realizadas, o que é recuperado em cada uma delas?\newline
+\newline
+a) I: os nomes dos departamentos que possuem mais de 5 empregados que ganham mais de 10.000 reais e o número de empregados nessa condição.\newline
+II: os nomes dos departamentos que possuem mais de 5 empregados e o número de empregados que ganham mais de 10.000 reais.\newline
+\newline
+b) I: os nomes dos departamentos que possuem mais de 5 empregados e o número de empregados que ganham mais de 10.000 reais.\newline
+II: os nomes dos departamentos que possuem mais de 5 empregados que ganham mais de 10.000 reais e o número de empregados nessa condição.\newline
+\newline
+c) I: os nomes dos departamentos que possuem mais de 5 empregados que ganham mais de 10.000 reais e o número total de funcionários do departamento.\newline
+II: os nomes dos departamentos que possuem mais de 5 empregados que ganham mais de 10.000 reais e o número de empregados nessa condição.\newline
+\newline
+d) I: os nomes dos departamentos que possuem mais de 5 empregados que ganham mais de 10.000 reais e o número de empregados nessa condição.\newline
+II: os nomes dos departamentos que possuem mais de 5 empregados que ganham mais de 10.000 reais e o número total de funcionários do departamento.\newline
+\newline
+e) I: os nomes dos departamentos que possuem mais de 5 empregados que ganham mais de 10.000 reais e o número de empregados nessa condição.\newline
+II: os nomes dos departamentos que possuem mais de 5 empregados que ganham mais de 10.000 reais e o número de empregados nessa condição.\newline
+\newline
+Resposta: A
+\newline
+\newpage
+\noindent \textbf{Questão} \quest (ENADE 2011) Em um modelo de dados que descreve a publicação acadêmica de pesquisadores de diferentes instituições em eventos acadêmicos, considere as tabelas abaixo.
+\newline\newline
+DEPARTAMENTO (#CodDepartamento, NomeDepartamento)\newline
+EMPREGADO (#CodEmpregado, NomeEmpregado, CodDepartamento, Salario)\newline
+\newline
+Na linguagem SQL, o comando mais simples para recuperar os códigos dos departamentos cuja média salarial seja maior que 2000 é:
+\newline\newline
+a) SELECT CodDepartamento\newline
+FROM EMPREGADO\newline
+GROUP BY CodDepartamento\newline
+HAVING AVG (Salario) > 2000\newline
+\newline
+b) SELECT CodDepartamento\newline
+FROM EMPREGADO\newline
+WHERE AVG (Salario) > 2000\newline
+GROUP BY CodDepartamento\newline
+\newline
+c) SELECT CodDepartamento\newline
+FROM EMPREGADO\newline
+WHERE AVG (Salario) > 2000\newline
+\newline
+d) SELECT CodDepartamento, AVG (Salario) > 2000\newline
+FROM EMPREGADO\newline
+GROUP BY CodDepartamento\newline
+\newline
+e) SELECT CodDepartamento\newline
+FROM EMPREGADO\newline
+GROUP BY CodDepartamento\newline
+ORDER BY AVG (Salario) > 2000\newline
+\newline
+Resposta: A
+\newline
+\newpage
+
+\noindent \textbf{Questão} \quest (ENADE 2011) Pedro foi contratado como desenvolvedor de software de uma empresa. Em seu primeiro dia de trabalho ele se deparou com o DER (Diagrama Entidade-Relacionamento), que representa os dados de um sistema de controle de malotes. Foi solicitado a Pedro relatório para o sistema contendo os seguintes dados: o nome de todos os funcionários que enviaram os malotes, o código dos malotes enviados, a descrição de seus conteúdos e a situação dos malotes. Para a geração do relatório, Pedro tem que fazer uma consulta utilizando o comando SELECT da linguagem SQL.
+\newline\newline
+\includegraphics{images/7.png}
+\newline\newline
+Conhecidos o modelo conceitual de dados e os dados necessários para a tarefa de Pedro, o comando SELECT que ele deve executar para realizar a consulta e produzir o relatório corretamente é:
+\newline\newline
+\includegraphics{images/52011.png}
+\newline
+Resposta: D
+\newline
+\newpage
+
+
+\noindent \textbf{Questão} \quest (POSCOMP 2003) Considere as seguintes tabelas em uma base de dados relacional:
+\newline\newline
+Departamento (CodDepto, NomeDepto)\newline
+Empregado (CodEmp, NomeEmp, CodDepto)\newline
+\newline
+Deseja-se obter uma tabela na qual cada linha é a concatenação de uma linha da tabela Departamento com uma linha da tabela de Empregado. Caso um departamento não possua empregados, seu linha no resultado deve conter vazio (NULL) nos campos referentes ao empregado. A operação de álgebra relacional que deve ser aplicada para combinar estas duas tabelas é:
+\newline\newline
+a) Divisão.\newline
+b) Junção interna.\newline
+c) Junção externa.\newline
+d) União.\newline
+e) Projeção.\newline
+\newline
+Resposta: C
+\newline
+
+\noindent \textbf{Questão} \quest (POSCPOMP 2003) Considere as seguintes tabelas em uma base de dados relacional (chaves primárias sublinhadas):
+\newline
+Departamento (CodDepto, NomeDepto)\newline
+Empregado (CodEmp, NomeEmp, CodDepto)\newline
+\newline
+Considere as seguintes restrições de integridade sobre esta base de dados relacional:
+\newline\newline
+– Empregado.CodDepto é sempre diferente de NULL\newline
+– Empregado.CodDepto é chave estrangeira da tabela Departamento com cláusulas ON DELETE RESTRICT e ON UPDATE RESTRICT\newline
+\newpage
+Qual das seguintes validações não é especificada por estas restrições de integridade:
+\newline\newline
+a) Sempre que uma nova linha for inserida em Empregado, deve ser garantido que o valor de Empregado.CodDepto aparece na coluna Departamento.CodDepto.\newline
+b) Sempre que uma linha for excluída de Departamento, deve ser garantido que o valor de Departamento.CodDepto não aparece na coluna Empregado.CodDepto.\newline
+c) Sempre que o valor de Empregado.CodDepto for alterado, deve ser garantido que o novo valor de Empregado.CodDepto aparece em Departamento.CodDepto.\newline
+d) Sempre que o valor de Departamento.CodDepto for alterado, deve ser garantido que não há uma linha com o antigo valor de Departamento.CodDepto na coluna Empregado.CodDepto.\newline
+e) Sempre que uma nova linha for inserida em Departamento, deve ser garantido que o valor de Departamento.CodDepto aparece na coluna Empregado.CodDepto\newline
+\newline
+Resposta: E
+\newline
+
+\noindent \textbf{Questão} \quest  (POSCOMP 2003) Considere as seguintes tabelas em uma base de dados relacional:
+\newline\newline
+Departamento (CodDepto, NomeDepto)\newline
+Empregado (CodEmp, NomeEmp, CodDepto,Salario)\newline
+\newline
+Considere a seguinte consulta escrita em SQL:
+\newline\newline
+SELECT D.CodDepto,NomeDepto,SUM(E.Salario)\newline
+FROM Departamento D, Empregado E\newline
+WHERE D.CodDepto=E.CodDepto\newline
+GROUP BY D.CodDepto,NomeDepto\newline
+HAVING COUNT(*)>2 AND AVG(E.Salario)>40\newline
+\newline
+A consulta acima obtém o seguinte resultado:
+\newline
+a) Para cada empregado que tem mais que dois departamentos, ambos com média salarial maior que 40, obter o código de departamento, seguido do nome do departamento, seguido da soma dos salários dos empregados do departamento.\newline
+b) Para cada departamento que tem mais que dois empregados e cuja média salarial é maior que 40, obter o código de departamento, seguido do nome do departamento, seguido da soma dos salários dos empregados do departamento.\newline
+c) Para cada departamento que tem mais que dois empregados e cuja média salarial, considerando todos empregados do departamento, exceto os dois primeiros, é maior que 40, obter o código de departamento, seguido do nome do departamento, seguido da soma dos salários dos empregados do departamento.\newline
+d) A consulta não retorna nada pois está incorreta.\newline
+e) Para cada departamento que tem mais que dois empregados e cuja média salarial é maior que 40 obter um grupo de linhas que contém, para cada empregado do departamento, o código de seu departamento, seguido do nome de seu departamento, seguido da soma dos salários dos empregados do departamento.\newline
+\newline
+Resposta: B
+\newpage
+
+\noindent \textbf{Questão} \quest (POSCOMP 2004) Considere as seguintes tabelas em uma base de dados relacional, contendo informações sobre empregados, departamentos e a vinculação entre eles:
+\newline\newline
+Departamento (CodDepto, NomeDepto)\newline
+Empregado (CodEmp, NomeEmp, CodDepto)\newline
+\newline
+Deseja-se obter os nomes dos departamentos (NomeDepto) que não estão vinculados a nenhum Empregado. Para obter este resultado a consulta correta em SQL é a seguinte:
+\newline\newline
+a) SELECT NomeDepto\newline
+FROM Departamento D, Empregado E\newline
+WHERE D.CodDepto=E.CodDepto AND\newline
+E.CodEmp IS NULL\newline
+\newline
+b) SELECT NomeDepto\newline
+FROM Departamento D\newline
+WHERE EXISTS\newline
+(SELECT *\newline
+FROM Empregado E\newline
+WHERE CodDepto=D.CodDepto)\newline
+\newline
+c) (SELECT NomeDepto\newline
+FROM Departamento D)\newline
+EXCEPT\newline
+(SELECT NomeDepto\newline
+FROM Departamento D, Empregado E\newline
+WHERE D.CodDepto=E.CodDepto)\newline
+\newline
+d) SELECT NomeDepto\newline
+FROM Departamento D, Empregado E\newline
+WHERE D.CodDepto<>E.CodDepto\newline
+\newline
+e) SELECT NomeDepto\newline
+FROM Departamento D\newline
+WHERE CodDepto IN\newline
+(SELECT CodDepto\newline
+FROM Empregado E\newline
+\newline
+Resposta: C
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2004) Considere as seguintes tabelas em uma base de dados relacional, contendo informações sobre empregados, departamentos e a vinculação entre eles:
+\newline\newline
+Departamento (CodDepto, NomeDepto)\newline
+Empregado (CodEmp, NomeEmp, CodDepto, SalarioEmp)\newline
+\newline
+\newpage
+Considere a seguinte consulta sobre esta base de dados:\newline
+\newline
+SELECT D.CodDepto, AVG(SalarioEmp)\newline
+FROM Departamento D,\newline
+Empregado E\newline
+WHERE E.CodDepto=D.CodDepto AND\newline
+E.SalarioEmp > 300\newline
+GROUP BY D.CodDepto\newline
+HAVING COUNT(*) > 20\newline
+\newline
+Esta consulta SQL tem o seguinte resultado:
+\newline\newline
+a) Para departamentos com mais que 20 empregados que tenham salário maior que 300, obter o código do departamento e a média salarial dos empregados do departamento.\newline
+b) Para departamentos que tem mais que 20 empregados nos quais todos empregados tem salário maior que 300, obter o código do departamento e a média salarial dos empregados que ganham mais que 300.\newline
+c) Para departamentos que tem mais que 20 empregados nos quais todos empregados tem salário maior que 300, obter o código do departamento e a média salarial dos empregados do departamento.\newline
+d) Para departamentos que tem mais que 20 empregados, obter o código do departamento e a média salarial dos empregados que ganham mais que 300.\newline
+e) Para departamentos com mais que 20 empregados que tenham salário maior que 300, obter o código do departamento e a média salarial dos empregados do departamento que ganham mais que 300.\newline
+\newline
+Resposta: E
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2006) Sobre os operadores da Álgebra Relacional, é correto afirmar que:
+\newline\newline
+a) O operador de SELEÇÃO seleciona as colunas de uma tupla que satisfazem a uma determinada condição.\newline
+b) O numero de tuplas resultantes da aplicação do operador de PROJEÇÃO em uma dada relação R é sempre igual ao numero de tuplas de R.\newline
+c) O numero de tuplas resultantes da aplicação do operador de JUNÇÃO em duas relações R e S é sempre maior do que o numero de tuplas resultantes do PRODUTO CARTESIANO de R e S.\newline
+d) A aplicação das operações de UNIÃO e INTERSEÇÃO requerem que as relações envolvidas sejam compatıveis quanto a união.\newline
+e) O numero de tuplas resultantes da aplicação do operador de SELEÇÃO em uma relação R é sempre menor do que o numero de tuplas de R.\newline
+\newline
+Resposta: D
+\newline
+
+\newpage
+\noindent \textbf{Questão} \quest (POSCOMP 2006) Considere os seguintes esquemas de relação:
+\newline\newline
+Departamentos (codDepto, nome, gerente)\newline
+Empregados (codEmp, nome, codDepto, salario)\newline
+\newline
+Considere também que o atributo codDepto na relação Empregados é uma chave estrangeira que faz referência a relação Departamentos. Suponha a seguinte consulta formulada na linguagem SQL:
+\newline\newline
+SELECT d.codDepto\newline
+FROM Empregados e, Departamentos d\newline
+WHERE e.codDepto = d.codDepto\newline
+GROUP BY d.codDepto\newline
+HAVING AVG(sal) > ALL (SELECT e.sal\newline
+FROM Empregados e, Departamentos d\newline
+WHERE e.codDepto = d.codDepto\newline
+AND d.nome = 'vendas)\newline
+\newline
+Escolha, dentre as afirmativas abaixo, a correta:
+\newline\newline
+a) A consulta retorna os códigos dos departamentos cujos empregados têm salário maior do que a média dos salários dos empregados que trabalham no departamento de vendas.\newline
+b) A consulta retorna os códigos dos departamentos cujos empregados têm salário maior do que os salários dos empregados que trabalham no departamento de vendas.\newline
+c) A consulta retorna os códigos dos departamentos cuja média de salário dos seus empregados é maior do que a média dos salários dos empregados que trabalham no departamento de vendas.\newline
+d) A consulta está formulada incorretamente.\newline
+e) Nenhuma das afirmativas acima está correta.\newline
+\newline
+Resposta: E
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2007) Considere um banco de dados com as seguintes tabelas e campos:
+\newline\newline
+ALUNOS (nome-aluno, código-aluno, cidade, código-curso)\newline
+CURSOS (nome-curso, código-curso, carga-horária)\newline
+\newline
+\newpage
+Assinale a alternativa que apresenta a forma mais otimizada de realizar a consulta “encontrar o nome dos alunos que pertencem ao curso Computação”. (operações em ordem de execução)
+\newline\newline
+a) Junção de cursos com alunos, seleção de linhas em que nome-curso = “Computação”, projeção do resultado sobre nome-aluno.\newline
+b) Junção de cursos com alunos, projeção do resultado sobre nome-aluno, seleção de linhas em que nome-curso = “Computação”.\newline
+c) Seleção de linhas em cursos em que nome-curso = “Computação”, projeção do resultado sobre código-curso, junção com alunos, projeção do resultado sobre nome-aluno.\newline
+d) Seleção de linhas em cursos em que nome-curso = “Computação”, junção com alunos, projeção do resultado sobre nome-aluno.\newline
+e) Seleção de linhas em cursos em que nome-curso = “Computação”, projeção do resultado sobre nome-aluno.\newline
+\newline
+Resposta: C
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2009) Com relação às operações da álgebra relacional está ERRADO afirmar que o comando:
+\newline\newline
+a) SELECT extrai tuplas específicas de uma relação específica.\newline
+b) UNION constrói uma relação consistindo em todas as tuplas que aparecem em um par de relações específicas que são compatíveis.\newline
+c) PROJECT extrai atributos específicos de uma relação específica.\newline
+d) JOIN constrói uma relação a partir de duas relações específicas, consistindo em todas as possibilidades de pares de tuplas, uma de cada uma das relações específicas.\newline
+e) DIFFERENCE constrói uma relação a partir de duas relações específicas que são compatíveis, consistindo em todas as tuplas que aparecem na primeira relação e não aparecem na segunda.\newline
+\newline
+Resposta: D
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2009) Sejam as seguintes tabelas em um banco de dados relacional:
+\newline
+\includegraphics{images/tabs.png}
+\newline
+\newpage
+Qual o resultado da seguinte consulta em SQL:
+\newline\newline
+SELECT CNOME, NOME, PRECO*(1-DESCONTO/100) AS PF\newline
+FROM COMPRADORES, PRODUTO\newline
+WHERE\newline
+DESCONTO>(SELECT AVG(DESCONTO) FROM COMPRADORES)\newline
+AND CID=CLIENTE\newline
+ORDER BY NOME,CNOME;\newline
+\newline
+\includegraphics{images/tab.png}
+\newline
+Resposta: C
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2010) Considere o esquema de um banco de dados relacional EMPRESA a seguir. As setas indicam as chaves estrangeiras e o sublinhado indica a chave primária.
+\newline\newline
+\includegraphics{images/relations.png}
+\newline\newline
+Considere a especificação dos seguintes comandos em SQL aplicados sobre o esquema de banco de dados apresentado.\newline
+\newpage
+\newline
+I.\newline
+SELECT DNUMERO,COUNT(*)\newline
+FROM DEPARTAMENTO, EMPREGADO\newline
+WHERE DNUMERO=DNO AND SALARIO>40000 AND\newline
+DNO IN (SELECT DNO\newline
+FROM EMPREGADO\newline
+GROUP BY DNO\newline
+HAVING COUNT(*)>5)\newline
+GROUP BY DNUMERO;\newline
+\newline
+II.\newline
+SELECT DNO, COUNT(*), AVG(SALARIO)\newline
+FROM EMPREGADO\newline
+GROUP BY DNO;\newline
+\newline
+Assinale a alternativa correta.\newline
+\newline
+a) Na consulta do item I, para cada cinco ou mais departamentos, a consulta retorna o número do departamento e o número dos empregados que recebem mais de 40 mil reais. Na consulta do item II, para cada empregado, a consulta retorna o número do seu departamento e a média de salários de cada departamento.\newline
+b) Na consulta do item I, para cada departamento que tenha mais de cinco empregados, a consulta retorna o número do departamento que possui empregados que recebem mais de 40 mil reais. Na consulta do item II, para cada empregado, a consulta retorna o número do seu departamento, o número de empregados que nele trabalham e o somatório de seus salários.\newline
+c) Na consulta do item I, para cada departamento que tenha mais de cinco empregados, a consulta retorna o número dos empregados que recebem mais de 40 mil reais. Na consulta do item II, para cada empregado, a consulta retorna o número do seu departamento, o número de empregados que trabalham com ele e o somatório de seus salários.\newline
+d) Na consulta do item I, para cada cinco ou mais empregados, a consulta retorna o número do departamento que possui empregados que recebem mais de 40 mil reais. Na consulta do item II, para cada departamento, a consulta retorna o número do seu departamento, o número de empregados que nele trabalham e o somatório de seus salários.\newline
+e) Na consulta do item I, para cada departamento que tenha mais de cinco empregados, a consulta retorna o número do departamento e o número dos empregados que recebem mais de 40 mil reais. Na consulta do item II, para cada departamento, a consulta retorna o número do departamento, o número de empregados que nele trabalham e a média de seus salários.\newline
+\newline
+Resposta: E
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2010) Considere um banco de dados relacional composto pelas tabelas definidas a seguir, na linguagem SQL, em que são cadastrados alunos, disciplinas e as matrículas de alunos em disciplinas.
+\newline\newline
+CREATE TABLE Aluno (\newline
+RA INTEGER NOT NULL,\newline
+Nome VARCHAR2(20) NOT NULL,\newline
+Curso INTEGER NOT NULL,\newline
+PRIMARY KEY (RA) );\newline
+\newline
+CREATE TABLE Disciplina (\newline
+Codigo INTEGER NOT NULL,\newline
+Nome VARCHAR2(20) NOT NULL,\newline
+Departamento INTEGER NOT NULL,\newline
+PRIMARY KEY (Codigo) );\newline
+\newline
+\newpage
+CREATE TABLE Matricula (\newline
+RA INTEGER NOT NULL,\newline
+Codigo INTEGER NOT NULL,\newline
+Ano INTEGER NOT NULL,\newline
+PRIMARY KEY (RA, Codigo),\newline
+FOREIGN KEY (Codigo) REFERENCES Disciplina,\newline
+FOREIGN KEY (RA) REFERENCES Aluno);\newline
+\newline
+Considere também a consulta a seguir, expressa na linguagem SQL, em que o operador MINUS realiza a operação de subtração de relações.\newline
+\newline
+SELECT Nome FROM Aluno A\newline
+WHERE NOT EXISTS ( (SELECT D.Codigo FROM Disciplina D WHERE D.Departamento = 5)\newline
+MINUS\newline
+(SELECT M.Codigo FROM Matricula M WHERE M.RA = A.RA)\newline
+)\newline
+AND EXISTS (SELECT D.Codigo FROM Disciplina D WHERE D.Departamento = 5)\newline
+\newline
+Considere, por fim, as afirmativas a seguir, sobre a consulta apresentada.\newline
+\newline
+I. A consulta retorna os nomes dos alunos matriculados em todas as disciplinas do departamento 5.\newline
+II. A consulta retorna os nomes dos alunos matriculados em, pelo menos, uma disciplina do departamento 5.\newline
+III. A consulta retorna os nomes das disciplinas do departamento 5 nas quais todos os alunos estão matriculados.\newline
+IV. A estrutura dessa consulta permite implementar, na linguagem SQL, a operação de divisão da Álgebra Relacional.\newline
+\newline
+Assinale a alternativa correta.\newline
+\newline
+a) Somente as afirmativas I e II são corretas.\newline
+b) Somente as afirmativas I e IV são corretas.\newline
+c) Somente as afirmativas III e IV são corretas.\newline
+d) Somente as afirmativas I, II e III são corretas.\newline
+e) Somente as afirmativas II, III e IV são corretas.\newline
+\newline
+Resposta: B
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2011) Considere a relação a seguir, definida na linguagem SQL padrão.
+\newline\newline
+CREATE TABLE EMPREGADO\newline
+(\newline
+CODIGO NUMBER(4) PRIMARY KEY,\newline
+NOME VARCHAR2(10),\newline
+SALARIO NUMBER(7,2)\newline
+)\newline
+\newline
+\newpage
+Considere também as consultas (C1, C2, C3 e C4) a seguir, expressas na linguagem SQL.\newline
+\newline
+C1:\newline
+select NOME from EMPREGADO\newline
+where CODIGO in ((select CODIGO from EMPREGADO)\newline
+minus\newline
+(select E1.CODIGO from EMPREGADO E1, EMPREGADO E2\newline
+where E1.SALARIO < E2.SALARIO)\newline
+)\newline
+Obs: o operador minus realiza a operação de subtração entre relações.\newline
+\newline
+C2:\newline
+select NOME from EMPREGADO\newline
+where SALARIO = (select max(SALARIO) from EMPREGADO)\newline
+\newline
+C3:\newline
+Select NOME from EMPREGADO\newline
+where SALARIO >= all (select SALARIO from EMPREGADO)\newline
+\newline
+C4:\newline
+select NOME from EMPREGADO\newline
+where CODIGO in ( select E1.CODIGO from EMPREGADO E1, EMPREGADO E2\newline
+where E1.SALARIO > E2.SALARIO\newline
+)\newline
+\newline
+Com relação às consultas, assinale a alternativa correta.\newline
+\newline
+a) Apenas as consultas C2 e C3 são equivalentes.\newline
+b) Todas as consultas são equivalentes.\newline
+c) Apenas as consultas C1 e C3 são equivalentes.\newline
+d) Apenas as consultas C1 e C4 são equivalentes.\newline
+e) Apenas as consultas C1, C2 e C3 são equivalentes.\newline
+\newline
+Resposta: E
+\newline
+
+\noindent \textbf{Questão} \quest (POSCOMP 2012) Considere as tabelas, a seguir, criadas em um banco de dados relacional através da linguagem SQL.
+\newline\newline
+CREATE TABLE Empregado\newline
+( ecod int PRIMARY KEY,\newline
+nome varchar (32),\newline
+salario number (7,2),\newline
+dcod int FOREIGN KEY REFERENCES Departamento (dcod));\newline
+\newline
+CREATE TABLE Departamento\newline
+( dcod int PRIMARY KEY,\newline
+dnome varchar (12),\newline
+chefe int FOREIGN KEY REFERENCES Empregado (ecod));\newline
+\newline
+\newpage
+Sejam as consultas (C1, C2 e C3) também em SQL, a seguir.\newline
+\newline
+C1. SELECT nome, salario FROM Empregado E, Departamento D WHERE E.dcod = D.dcod AND E.ecod = D.chefe;\newline
+\newline
+C2. SELECT nome, salario FROM Empregado as E INNER JOIN Departamento as D ON E.dcod=D.dcod WHERE E.ecod = D.chefe;\newline
+\newline
+C3. SELECT nome, salario FROM E.ecod = D.chefe;\newline
+\newline
+Com relação às consultas, assinale a alternativa correta.\newline
+\newline
+a) Apenas a consulta C1 retorna o nome e o salário dos chefes dos departamentos.\newline
+b) Apenas a consulta C2 retorna o nome e o salário dos chefes dos departamentos.\newline
+c) Apenas a consulta C3 retorna o nome e o salário dos chefes dos departamentos.\newline
+d) As consultas C1, C2 e C3 são equivalentes e retornam o nome e o salário dos chefes dos departamentos.\newline
+e) As consultas C1 e C2 são equivalentes e retornam o nome e o salário dos chefes dos departamentos.\newline
+\newline
+Resposta: E
+\newline
+
+\newline\noindent \textbf{Questão} \quest (POSCOMP 2013) Uma empresa de auditoria foi contratada para analisar o banco de dados do SUS (Sistema Único de Saúde). A primeira tarefa é encontrar os pares de médicos cadastrados que possuem o mesmo nome (homônimos) e números diferentes no CRM (Conselho Regional de Medicina) para verificar possíveis fraudes. Considere que a tabela que armazena os médicos possui o cadastro no CRM como chave primária e as seguintes colunas: nome, endereço, telefone, especialidade, data de ingresso.
+\newline\newline
+Assinale a alternativa que apresenta, corretamente, a consulta em SQL que busca os resultados ordenados pelo nome dos médicos.\newline
+\newline
+a) SELECT M1.nome, M1.crm, M2.crm FROM Medicos as M1, Medicos as M2\newline
+WHERE M1.nome = M2.nome AND crm1 > crm2\newline
+GROUP BY nome;\newline
+\newline
+b) SELECT M1.nome, M1.crm, M2.crm FROM Medicos M1 JOIN Medicos M2\newline
+ON M1.nome = M2.nome WHERE M1.crm > M2.crm\newline
+ORDER BY M1.nome;\newline
+\newline
+c) SELECT M1.nome, M1.crm, M2.crm FROM Medicos M1\newline
+WHERE nome IN (SELECT nome FROM Medicos M2 WHERE M1.nome = nome AND M1.crm > crm)\newline
+ORDER BY nome;\newline
+\newline
+d) SELECT nome, M1.crm, M2.crm FROM Medicos M1 NATURAL JOIN Medicos M2 WHERE\newline
+M1.crm > M2.crm\newline
+ORDER BY nome;\newline
+\newline
+e) SELECT * FROM Medicos as M1, Medicos as M2\newline
+WHERE M1.nome LIKE M2.nome AND crm1 > crm2\newline
+GROUP BY M1.nome;\newline
+\newline
+Resposta: B
+\newline
+\newpage
+
+\noindent \textbf{Questão} \quest (POSCOMP 2017) Em consultas escritas em SQL, quando há pelo menos um NULL no predicado da cláusula WHERE, o resultado da avaliação é “desconhecido” (exceto quando são explicitamente empregados IS NULL ou IS NOT NULL); por exemplo, o resultado da avaliação de 3+NULL>7 é “desconhecido”. Portanto, “verdadeiro”, “falso” e “desconhecido” são os resultados possíveis na avaliação de predicados da cláusula WHERE. A regra geral é que são selecionadas apenas as combinações de tuplas em que o predicado é avaliado como “verdadeiro”. Seja a relação R que possui quatro tuplas – (12, 15, 5100), (13, NULL, 3500), (14, NULL, NULL) e (15, 12, NULL) – em que o primeiro, o segundo e o terceiro valores em cada tupla referem-se aos atributos at1, at2 e at3, respectivamente. Os comandos a seguir representam consultas sobre R:
+\newline\newline
+(C1) select * from R\newline
+where (at1>=12) AND (at2>14)\newline
+(C2) select * from R\newline
+where (at2>12) OR (at3>3000)\newline
+(C3) select * from R\newline
+where (NOT (at1<at2))\newline
+\newline
+A quantidade de tuplas retornadas pelas execuções dos comandos (C1), (C2) e (C3), respectivamente, é: 
+\newline\newline
+a) dois, um e dois.\newline
+b) dois, dois e um.\newline
+c) um, um e dois.\newline
+d) um, dois e um.\newline
+e) dois, dois, dois.\newline
+\newline
+Resposta: D
+\newline
+
+\newline\noindent \textbf{Questão} \quest (POSCOMP 2018) Quando um predicado da cláusula WHERE de uma consulta SQL aninhada referencia algum atributo de uma relação presente na consulta externa, tais consultas são ditas correlacionadas (ou correlatas). Seja Q uma consulta definida por
+\newline\newline
+SELECT DISTINCT SALARIO FROM\newline
+EMPRESA WHERE SALARIO > ALL (SELECT Salario FROM EMPRESA) OR SALARIO < ANY (SELECT\newline
+Salario FROM EMPRESA).\newline
+\newline
+A expressão SQL que utiliza consultas correlacionadas e cujo resultado é o mesmo resultado de Q é:
+\newline\newline
+\includegraphics{images/last.png}
+\newline
+Resposta: D
+
+\newpage
+\normalsize
+\vspace{0.5cm}
+\noindent \sf \small \textbf{REFERENCIAS:}
+\rm
+\normalsize
+\newline\newline
+http://portal.inep.gov.br/web/guest/educacao-superior/enade/provas-e-gabaritos
+\newline
+https://www.sbc.org.br/documentos-da-sbc/category/153-provas-e-gabaritos-do-poscomp
+\newline
+\end{document}
